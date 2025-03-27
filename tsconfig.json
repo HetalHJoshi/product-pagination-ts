@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es2016", // Good baseline for browser compatibility
+    "module": "es6", // Use ES modules for browser compatibility
+    "rootDir": "./src", // Your TypeScript source files
+    "outDir": "./dist", // Compiled JavaScript output
+    "strict": true, // Enable all strict type checking
+    "esModuleInterop": true, // Interop with CommonJS modules
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true, // Skip type checking for libraries (faster)
+    "allowSyntheticDefaultImports": true // Support `import x from 'y'`
+  },
+  "include": ["src/**/*"] // Include all .ts files in src
+}

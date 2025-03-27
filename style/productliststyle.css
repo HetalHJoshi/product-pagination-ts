@@ -1,0 +1,43 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    border-radius: 0.75rem;
+}
+
+.image-preview-card img {
+    border-radius: 0.5rem;
+    background: #fff;
+    border: 1px solid #dee2e6;
+}
+
+#pageHeader {
+    font-weight: 600;
+    font-size: 1.75rem;
+    color: #343a40;
+}
+
+label {
+    font-weight: 500;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #86b7fe;
+}
+
+.btn {
+    font-weight: 500;
+    border-radius: 0.5rem;
+}
+
+/* .pagination {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    padding: 10px 0;
+    z-index: 1000;
+} */

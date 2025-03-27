@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Product Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./style/productliststyle.css">
+
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">MyCompany</a>
+            <div class="ml-auto">
+                <a href="product.html?mode=add" class="btn btn-outline-light d-none" id="addProductBtn">Add Product</a>
+                <a href="index.html" class="btn btn-outline-light" id="goBackBtn">Go to Product List</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="container mt-4">
+        <div class="card shadow-sm mb-4">
+            <div class="card-body py-3 px-4">
+                <h2 id="pageHeader" class="mb-0">Add Product</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Left: Image Preview -->
+            <div class="col-md-4 d-flex align-items-start justify-content-center mb-4">
+                <div class="card image-preview-card p-3 w-100 text-center shadow-sm">
+                    <h5 class="mb-3">Image Preview</h5>
+                    <img id="imagePreview" src="https://placehold.co/300x300?text=Product+Image&font=roboto"
+                        alt="Product Preview" class="img-fluid m-3 border"
+                        style="object-fit: cover; max-height: 300px; padding: 9px;" />
+                </div>
+            </div>
+
+            <!-- Right: Product Form -->
+            <div class="col-md-8">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <form id="productForm" novalidate>
+                            <div class="form-group">
+                                <label for="productName">Product Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="productName" required />
+                                <div class="invalid-feedback">Please enter a product name (min 2 characters).</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="productImage">Image Upload <span class="text-danger">*</span></label>
+                                <input type="file" class="form-control-file" id="productImage" accept="image/*" />
+                                <div class="invalid-feedback">Please upload a valid product image (JPG, PNG, etc).</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="productPrice">Price <span class="text-danger">*</span></label>
+                                <input type="number" class="form-control" id="productPrice" min="0" step="1" required />
+                                <div class="invalid-feedback">Please enter a valid price greater than 0.</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="productDescription">Description <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="productDescription" rows="3" required></textarea>
+                                <div class="invalid-feedback">Please enter a product description (min 10 characters).
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-success">Save</button>
+                            <a href="index.html" class="btn btn-secondary ml-2">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <!-- <div class="modal fade" id="successModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content text-center">
+                <div class="modal-body p-4">
+                    <h5 id="successMessage" class="mb-0">Product saved successfully.</h5>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- Load reusable modal -->
+    <div id="modalContainer"></div>
+
+    <!-- Script -->
+    <script>
+        fetch('modal.html')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('modalContainer').innerHTML = html;
+            });
+    </script>
+    <script src="./dist/product-form.js"></script>
+    <!-- jQuery & Bootstrap JS for modal -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./dist/modal.js"></script>
+
+</body>
+
+</html>
